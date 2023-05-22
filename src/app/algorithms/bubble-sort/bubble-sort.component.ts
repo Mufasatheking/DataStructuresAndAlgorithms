@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {BubbleSortService} from "./bubble-sort.service";
+import {BubbleSortStep} from "./BubbleSortStep";
 
 
 class SortingStep {
@@ -7,6 +9,7 @@ class SortingStep {
   comparing: boolean = false;
   swapped: boolean = false;
   sorted:boolean = false;
+  initial:boolean = false;
 }
 
 
@@ -20,10 +23,37 @@ export class BubbleSortComponent implements OnInit {
   public initialArray: number[] = [];
   public sortingSteps: SortingStep[] = [];
   public currentStep: SortingStep = new SortingStep();
-  public iterations = 1;
+  public startedSort = false;
+  public currentBubbleSortStep: BubbleSortStep= {
+    array: [],
+    index: 0,
+    iterations: 0,
+    steps: 0,
+    comparing: false,
+    swapped: false,
+    sorted: false,
+    initial: false
+  };
+  public iterations = 0;
   public steps = 0;
   public sorted = false;
-  ngOnInit(): void {
+  constructor(public _bubbleSortService: BubbleSortService) {
+    _bubbleSortService.addReceiveMessageDataListener();
+  }
+  ngOnInit() {
+    this._bubbleSortService.bubbleSortStep$.subscribe(p => {
+      this.startedSort = true;
+      this.iterations = p.iterations;
+      this.steps = p.steps;
+      this.currentBubbleSortStep = p
+      if(p.initial)
+        this.initialArray = p.array
+    })
+  }
+  public triggerBubbleSort(){
+    this._bubbleSortService.triggerBubbleSort();
+  }
+  /*ngOnInit(): void {
     let randomNumberArray: number[] = []
     setTimeout(() => {
       let reverseOrderedArray = [90,84,83,61,58,56,26,15,12,5] //Worst case scenario
@@ -35,7 +65,7 @@ export class BubbleSortComponent implements OnInit {
       //console.log("");
       //console.log(`Final Array ${finalArray}`);
     }, 2000)
-  }
+  }*/
 
   public GenRandomNumberArray(size:number): number[] {
     let randomNumberArray = [];

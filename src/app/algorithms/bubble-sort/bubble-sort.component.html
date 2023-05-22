@@ -2,11 +2,25 @@
 <a routerLink="/">Home</a>
 <br>
 <br>
+<button (click)="triggerBubbleSort();">Trigger BubbleSort</button><br>
+<div>{{this._bubbleSortService.serverResponse$ | async}}</div>
+<br>
+<br>
 <div>Initial Array: {{this.initialArray}}</div>
 <br>
 <div>Iterations: {{this.iterations}}</div>
 <div>Steps: {{this.steps}}</div>
 <br>
+<div *ngIf="this.startedSort">
+  <span *ngFor="let number of this.currentBubbleSortStep.array; let j = index"
+        class="customMus" [ngClass]="{'yellow-style': (this.currentBubbleSortStep.comparing && (j === this.currentBubbleSortStep.index || j === this.currentBubbleSortStep.index+1)),
+                    'blue-style': this.currentBubbleSortStep.swapped && j === this.currentBubbleSortStep.index||this.currentBubbleSortStep.swapped && j === this.currentBubbleSortStep.index + 1,
+                    'green-style': this.currentBubbleSortStep.sorted}">
+    {{ number }}
+  </span>
+</div>
+
+<!--
 <span *ngFor="let number of this.currentStep.array; let j = index"
       [ngClass]="{'yellow-style': this.currentStep.comparing && (j === this.currentStep.index || j === this.currentStep.index+1),
                     'blue-style': this.currentStep.swapped && j === this.currentStep.index,
@@ -14,7 +28,7 @@
                     'green-style': this.currentStep.sorted}">
     {{ number }}
   </span>
-<!--
+
 <div *ngFor="let step of sortingSteps; let i = index" class="flex">
   <span *ngFor="let number of step.array; let j = index"
         [ngClass]="{'yellow-style': step.comparing && (j === step.index || j === step.index+1),
