@@ -7,13 +7,15 @@ import {BubbleSortComponent} from "./algorithms/bubble-sort/bubble-sort.componen
 import { HomeComponent } from './home/home.component';
 import { SignalRTestComponent } from './signal-rtest/signal-rtest.component';
 import {HttpClientModule} from "@angular/common/http";
+import { SelectSortComponent } from './algorithms/select-sort/select-sort.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BubbleSortComponent,
     HomeComponent,
-    SignalRTestComponent
+    SignalRTestComponent,
+    SelectSortComponent
   ],
   imports: [
     BrowserModule,

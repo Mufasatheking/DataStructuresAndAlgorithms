@@ -1,37 +1,37 @@
 import { Injectable } from '@angular/core';
-import * as signalR from "@microsoft/signalr";
-import {environment} from "../../../environments/environment";
-import {BubbleSortStep} from "./BubbleSortStep";
 import {Subject} from "rxjs";
+import * as signalR from "@microsoft/signalr";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
+import {SelectSortStep} from "./SelectSortStep";
 
 @Injectable({
   providedIn: 'root'
 })
-export class BubbleSortService {
-  public bubbleSortStep$ = new Subject<BubbleSortStep>()
+export class SelectSortService {
+  public selectSortStep$ = new Subject<SelectSortStep>()
   public serverResponse$ = new Subject<string>()
 
   private hubConnection: signalR.HubConnection
   constructor(public httpClient: HttpClient) {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl(`${environment.baseUrl}/bubbleSortHub`)
+      .withUrl(`${environment.baseUrl}/selectsorthub`)
       .build();
     this.hubConnection
       .start()
-      .then(() => console.log('BubbleSortHub Connection started'))
+      .then(() => console.log('SelectSortHub Connection started'))
       .catch(err => console.log('Error while starting connection: ' + err))
   }
   public startConnection = () => {
   }
 
   public addReceiveMessageDataListener = () => {
-    this.hubConnection.on('sendBubbleSortStep', (data) => {
-      this.bubbleSortStep$.next(data)
+    this.hubConnection.on('sendSelectSortStep', (data) => {
+      this.selectSortStep$.next(data)
     });
   }
-  public triggerBubbleSort(){
-    this.httpClient.get<response>(`${environment.baseUrl}/BubbleSort`).subscribe((p:response) => {
+  public triggerSelectSort(){
+    this.httpClient.get<response>(`${environment.baseUrl}/SelectSort`).subscribe((p:response) => {
       this.serverResponse$.next(p.message);
     });
   }

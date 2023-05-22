@@ -1,0 +1,23 @@
+.customMus{
+  font-size: 20px;
+  border: 1px solid;
+}
+
+.sortedSection{
+  background-color: #C2FFC2;
+}
+
+.startIndex{
+  background-color: mistyrose;
+}
+.currentIndex{
+  background-color: yellow;
+}
+
+.currentMinimum{
+  background-color: #96C7FF;
+}
+
+.allSorted{
+  background-color: lightsalmon !important;
+}

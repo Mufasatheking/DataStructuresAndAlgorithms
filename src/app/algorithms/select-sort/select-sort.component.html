@@ -1,0 +1,24 @@
+<h1>Select Sort</h1>
+<a routerLink="/">Home</a>
+<br>
+<br>
+<button (click)="triggerSelectSort();">Trigger SelectSort</button><br>
+<div>{{this._selectSortService.serverResponse$ | async}}</div>
+<br>
+<br>
+<div>Initial Array: {{this.initialArray}}</div>
+<br>
+<div>Iterations: {{this.iterations}}</div>
+<div>Steps: {{this.steps}}</div>
+<br>
+<div *ngIf="this.startedSort">
+<span *ngFor="let number of this.currentSelectSortStep.array; let j = index"
+        class="customMus" [ngClass]="{
+        'sortedSection': (this.currentSelectSortStep.startIndex > j),
+        'startIndex':this.startIndex(j, currentSelectSortStep),
+        'currentMinimum':this.currentMinimum(j, currentSelectSortStep),
+        'currentIndex': currentIndex(j, currentSelectSortStep),
+        'allSorted': this.currentSelectSortStep.sorted}">
+    {{ number }}
+  </span>
+</div>

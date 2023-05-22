@@ -9,11 +9,11 @@ export class SignalRTestService {
   private hubConnection: signalR.HubConnection
   constructor() {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl(`${environment.baseUrl}/signalrtesthub`)
+      .withUrl(`${environment.baseUrl}/signalRTestHub`)
       .build();
     this.hubConnection
       .start()
-      .then(() => console.log('Connection started'))
+      .then(() => console.log('SignalRTestHub Connection started'))
       .catch(err => console.log('Error while starting connection: ' + err))
   }
   public startConnection = () => {
