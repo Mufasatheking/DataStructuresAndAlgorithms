@@ -1,0 +1,36 @@
+<h1>Insertion Sort</h1>
+<a routerLink="/">Home</a>
+<br>
+<br>
+<button (click)="triggerInsertionSort();">Trigger Insertion</button><br>
+<div>{{this._insertionSortService.serverResponse$ | async}}</div>
+<br>
+<br>
+<div>Initial Array: {{this.initialArray}}</div>
+<br>
+<div>Iterations: {{this.iterations}}</div>
+<div>Steps: {{this.steps}}</div>
+<br>
+<div *ngIf="this.startedSort && {step:this.currentInsertionSortStep} as insertionSort">
+  <div>Current Number:  {{insertionSort.step.currentNumber}}</div>
+  <br>
+  <br>
+  <div class="flexMusOuter">
+    <div class="flexMusInner">
+      <div *ngFor="let number of insertionSort.step.array; let j = index"
+           class="customMus" [ngClass]="{
+          'sortedSection': (this.currentInsertionSortStep.startIndex >= j),
+          'currentIndex': (this.currentInsertionSortStep.compareIndex == j),
+          'allSorted': this.currentInsertionSortStep.sorted}" >
+        {{ number }}
+      </div>
+    </div>
+    <div class="flexMusInner">
+      <div *ngFor="let number of insertionSort.step.array; let j = index"
+           class="customMusLower">
+        {{ insertionSort.step.startIndex == j ? insertionSort.step.currentNumber : "" }}
+      </div>
+    </div>
+    <br>
+  </div>
+</div>

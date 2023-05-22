@@ -1,0 +1,35 @@
+.flexMusOuter{
+  display: flex;
+  flex-direction: column;
+}
+
+.flexMusInner{
+  display: flex;
+  flex-direction: row;
+}
+.customMus{
+  font-size: 20px;
+  border: 1px solid;
+  width: 30px;
+}
+
+.customMusLower{
+  font-size: 20px;
+  border: 1px solid;
+  width: 30px;
+  height:25px;
+}
+
+.sortedSection{
+  background-color: #C2FFC2;
+}
+
+.startIndex{
+  background-color: mistyrose;
+}
+.currentIndex{
+  background-color: yellow;
+}
+.allSorted{
+  background-color: lightsalmon !important;
+}
