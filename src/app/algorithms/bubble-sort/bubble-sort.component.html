@@ -1,0 +1,26 @@
+<h1>Bubble Sort</h1>
+<a routerLink="/">Home</a>
+<br>
+<br>
+<div>Initial Array: {{this.initialArray}}</div>
+<br>
+<div>Iterations: {{this.iterations}}</div>
+<div>Steps: {{this.steps}}</div>
+<br>
+<span *ngFor="let number of this.currentStep.array; let j = index"
+      [ngClass]="{'yellow-style': this.currentStep.comparing && (j === this.currentStep.index || j === this.currentStep.index+1),
+                    'blue-style': this.currentStep.swapped && j === this.currentStep.index,
+                    'red-style': this.currentStep.swapped && j === this.currentStep.index + 1,
+                    'green-style': this.currentStep.sorted}">
+    {{ number }}
+  </span>
+<!--
+<div *ngFor="let step of sortingSteps; let i = index" class="flex">
+  <span *ngFor="let number of step.array; let j = index"
+        [ngClass]="{'yellow-style': step.comparing && (j === step.index || j === step.index+1),
+                    'blue-style': step.swapped && j === step.index,
+                    'red-style': step.swapped && j === step.index + 1}">
+    {{ number }}
+  </span>
+</div>
+-->
