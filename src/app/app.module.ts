@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BubbleSortComponent} from "./algorithms/bubble-sort/bubble-sort.component";
 import { HomeComponent } from './home/home.component';
+import { SignalRTestComponent } from './signal-rtest/signal-rtest.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
     BubbleSortComponent,
-    HomeComponent
+    HomeComponent,
+    SignalRTestComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
