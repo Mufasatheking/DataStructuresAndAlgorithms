@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-content>
+    <h1>Partition Example</h1>
+<a routerLink="/">Home</a>
+<br>
+<br>
+<button (click)="triggerPartitionExample();">Partition Example</button><br>
+<div>{{this._partitionExampleService.serverResponse$ | async}}</div>
+<br>
+<br>
+<div>Initial Array: {{this.initialArray}}</div>
+<br>
+<div>Iterations: {{this.iterations}}</div>
+<div>Steps: {{this.steps}}</div>
+<br>
+<div *ngIf="this.startedSort && {step:this.currentPartitionExampleStep} as partitionExample">
+  <br>
+  <br>
+  <div>
+    <div>Stage:{{partitionExample.step.message}}
+      <!--<span *ngIf="partitionExample.step.leftComparing">Left Pointer Comparing</span>
+      <span *ngIf="partitionExample.step.rightComparing">Right Pointer Comparing</span>
+      <span *ngIf="partitionExample.step.swapping">Swapping Left and Right</span>
+      <span *ngIf="partitionExample.step.pivotSwap">As index of left pointer > index of right pointer. Swapping Pivot Value: {{partitionExample.step.array[partitionExample.step.pivotIndex]}} with Left Pointer Value: {{partitionExample.step.leftPointerValue}}</span>
+      -->
+    </div>
+    <div>Left Pointer Value: {{partitionExample.step.leftPointerValue}}</div>
+    <div>Right Pointer Value: {{partitionExample.step.rightPointerValue}}</div>
+  </div>
+  <div class="flexMusOuter">
+    <div class="flexMusInner">
+      <div *ngFor="let number of partitionExample.step.array; let j = index"
+           class="customMus" [ngClass]="{
+          'pivot': (this.currentPartitionExampleStep.pivotIndex == j)}">
+        {{ number }}
+      </div>
+    </div>
+    <div class="flexMusInner">
+      <div *ngFor="let number of partitionExample.step.array; let j = index"
+           class="customMusLower">
+        {{ partitionExample.step.leftPointerIndex == j ? "L" : "" }}{{ partitionExample.step.rightPointerIndex == j ? "R" : ""}}
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+  </mat-card-content>
+</mat-card>

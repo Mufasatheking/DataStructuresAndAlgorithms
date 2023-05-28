@@ -9,6 +9,10 @@ import { SignalRTestComponent } from './signal-rtest/signal-rtest.component';
 import {HttpClientModule} from "@angular/common/http";
 import { SelectSortComponent } from './algorithms/select-sort/select-sort.component';
 import { InsertionSortComponent } from './algorithms/insertion-sort/insertion-sort.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatChipsModule} from "@angular/material/chips";
+import { PartitionExampleComponent } from './algorithms/quick-sort/partition-example/partition-example.component';
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -17,12 +21,16 @@ import { InsertionSortComponent } from './algorithms/insertion-sort/insertion-so
     HomeComponent,
     SignalRTestComponent,
     SelectSortComponent,
-    InsertionSortComponent
+    InsertionSortComponent,
+    PartitionExampleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatChipsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

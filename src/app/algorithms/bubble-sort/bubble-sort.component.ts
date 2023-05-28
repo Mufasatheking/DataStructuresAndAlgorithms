@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BubbleSortService} from "./bubble-sort.service";
 import {BubbleSortStep} from "./BubbleSortStep";
-
+import {MatChipsModule} from '@angular/material/chips';
 
 class SortingStep {
   array: number[] = [];

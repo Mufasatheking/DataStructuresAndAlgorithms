@@ -11,14 +11,14 @@
 <div>Iterations: {{this.iterations}}</div>
 <div>Steps: {{this.steps}}</div>
 <br>
-<div *ngIf="this.startedSort">
-  <span *ngFor="let number of this.currentBubbleSortStep.array; let j = index"
+<mat-chip-list *ngIf="this.startedSort">
+  <mat-chip *ngFor="let number of this.currentBubbleSortStep.array; let j = index"
         class="customMus" [ngClass]="{'yellow-style': (this.currentBubbleSortStep.comparing && (j === this.currentBubbleSortStep.index || j === this.currentBubbleSortStep.index+1)),
                     'blue-style': this.currentBubbleSortStep.swapped && j === this.currentBubbleSortStep.index||this.currentBubbleSortStep.swapped && j === this.currentBubbleSortStep.index + 1,
                     'green-style': this.currentBubbleSortStep.sorted}">
     {{ number }}
-  </span>
-</div>
+  </mat-chip>
+</mat-chip-list>
 
 <!--
 <span *ngFor="let number of this.currentStep.array; let j = index"

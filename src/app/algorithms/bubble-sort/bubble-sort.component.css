@@ -1,3 +1,8 @@
+.bubbleContainer{
+  display: flex;
+  flex-direction: row;
+}
+
 .customMus{
   font-size: 20px;
   border: 1px solid lightblue;

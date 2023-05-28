@@ -1,0 +1,23 @@
+.customMus{
+  font-size: 20px;
+  border: 1px solid;
+  width: 30px;
+}
+.flexMusOuter{
+  display: flex;
+  flex-direction: column;
+}
+
+.flexMusInner{
+  display: flex;
+  flex-direction: row;
+}
+.customMusLower{
+  font-size: 20px;
+  border: 1px solid;
+  width: 30px;
+  height:25px;
+}
+.pivot{
+  background-color: #C2FFC2;
+}
