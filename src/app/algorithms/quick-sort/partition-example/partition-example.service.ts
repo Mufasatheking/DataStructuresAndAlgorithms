@@ -33,7 +33,7 @@ export class PartitionExampleService {
     });
   }
   public triggerPartitionExample(){
-    this.httpClient.get<response>(`${environment.baseUrl}/QuickSort/PartitionExample`).subscribe((p:response) => {
+    this.httpClient.get<response>(`${environment.baseUrl}/QuickSort`).subscribe((p:response) => {
       this.serverResponse$.next(p.message);
     });
   }

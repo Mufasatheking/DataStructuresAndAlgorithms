@@ -31,7 +31,8 @@
     <div class="flexMusInner">
       <div *ngFor="let number of partitionExample.step.array; let j = index"
            class="customMus" [ngClass]="{
-          'pivot': (this.currentPartitionExampleStep.pivotIndex == j)}">
+          'pivot': (this.currentPartitionExampleStep.pivotIndex == j),
+          'previousPivot':(this.currentPartitionExampleStep.previousPivotIndexes.includes(j))}">
         {{ number }}
       </div>
     </div>

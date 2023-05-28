@@ -14,4 +14,5 @@ export interface QuickSortStep {
   sorted: boolean;
   initial: boolean;
   message:string;
+  previousPivotIndexes:number[]
 }

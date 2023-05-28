@@ -27,7 +27,8 @@ export class PartitionExampleComponent implements OnInit {
     pivotSwap:false,
     sorted: false,
     initial: false,
-    message: ""
+    message: "",
+    previousPivotIndexes:[]
   };
   public iterations = 0;
   public steps = 0;
